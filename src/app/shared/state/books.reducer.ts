@@ -80,7 +80,7 @@ export const selectActiveBook = createSelector(
   selectAll,
   selectActiveBookId,
   (bookList, activeBookId) => {
-    return bookList.find(book => book.id === activeBookId)
+    return bookList.find(book => book.id === activeBookId) || null
   }
 )
 
