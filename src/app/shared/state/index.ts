@@ -1,9 +1,25 @@
-import { ActionReducerMap, createSelector, MetaReducer } from "@ngrx/store";
+import {ActionReducerMap, createSelector, MetaReducer} from "@ngrx/store";
 import * as fromAuth from "./auth.reducer";
 import * as fromBooks from "./books.reducer";
+import {BookModel} from "../models";
+import * as BookStateSelectors from "./books.selectors"
 
-export interface State {}
+export {BookStateSelectors}
 
-export const reducers: ActionReducerMap<State> = {};
+export interface IGlobalState {
+  bookState: fromBooks.IBookState
+}
 
-export const metaReducers: MetaReducer<State>[] = [];
+export const reducers: ActionReducerMap<IGlobalState> = {
+  bookState: fromBooks.reducer
+};
+
+export const metaReducers: MetaReducer<IGlobalState>[] = [];
+
+
+/**
+ * Books State
+ */
+
+
+
