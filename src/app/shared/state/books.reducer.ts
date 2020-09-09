@@ -49,13 +49,15 @@ export const booksReducer = createReducer<IBookState>(
   on(BooksApiActions.createBookSuccess, (state, action): IBookState => {
     return {
       ...state,
-      collection: createBook(state.collection, action.createdBook)
+      collection: createBook(state.collection, action.createdBook),
+      activeBookId: null
     }
   }),
   on(BooksApiActions.updateBookSuccess, (state, action): IBookState => {
     return {
       ...state,
-      collection: updateBook(state.collection, action.updatedBook)
+      collection: updateBook(state.collection, action.updatedBook),
+      activeBookId: null
     }
   }),
   on(BooksApiActions.deleteBookSuccess, (state, action): IBookState => {
