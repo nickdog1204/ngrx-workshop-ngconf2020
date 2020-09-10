@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { timer, Observable, throwError } from "rxjs";
 import { map } from "rxjs/operators";
 import * as uuid from "uuid/v4";
-import { UserModel } from "../models/user.model";
+import { UserModel } from "../models";
 
 @Injectable({
   providedIn: "root"

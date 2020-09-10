@@ -2,12 +2,15 @@ import {Action, ActionReducer, ActionReducerMap, createSelector, MetaReducer} fr
 import * as fromAuth from "./auth.reducer";
 import * as fromBooks from "./books.reducer";
 import {BookModel} from "../models";
-import * as BookStateGlobalSelectors from "./books.selectors"
+import * as GlobalBookStateSelectors from "./books.selectors"
+import * as GlobalAuthStateSelectors from "./global-auth.selectors"
+import {logoutMetareducer} from "./logout.metareducer";
 
-export {BookStateGlobalSelectors}
+export {GlobalBookStateSelectors, GlobalAuthStateSelectors}
 
 export interface IGlobalState {
-  bookState: fromBooks.IBookState
+  bookState: fromBooks.IBookState,
+  authState: fromAuth.IAuthState
 }
 
 function logger(reducer: ActionReducer<any>) {
@@ -25,10 +28,14 @@ function logger(reducer: ActionReducer<any>) {
 }
 
 export const reducers: ActionReducerMap<IGlobalState> = {
-  bookState: fromBooks.reducer
+  bookState: fromBooks.reducer,
+  authState: fromAuth.authReducer
 };
 
-export const metaReducers: MetaReducer<IGlobalState>[] = [logger];
+export const metaReducers: MetaReducer<IGlobalState>[] = [
+  // logger,
+  logoutMetareducer
+];
 
 
 /**
