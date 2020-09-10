@@ -3,7 +3,7 @@ import {
   BookModel,
   BookRequiredProps
 } from "src/app/shared/models";
-import {BookStateSelectors, IGlobalState} from "../../../shared/state";
+import {BookStateGlobalSelectors, IGlobalState} from "../../../shared/state";
 import {Store} from "@ngrx/store";
 import {BooksPageActions} from "../../actions";
 import {Observable} from "rxjs";
@@ -15,13 +15,13 @@ import {Observable} from "rxjs";
 })
 export class BooksPageComponent implements OnInit {
   bookList$: Observable<BookModel[]>;
-  currentBook$: Observable<BookModel | null>;
+  currentBook$: Observable<BookModel | null | undefined>;
   total$: Observable<number>;
 
   constructor(private store: Store<IGlobalState>) {
-    this.bookList$ = this.store.select(BookStateSelectors.selectFullBookList)
-    this.currentBook$ = this.store.select(BookStateSelectors.selectActiveBook)
-    this.total$ = this.store.select(BookStateSelectors.selectBooksEarningsTotals)
+    this.bookList$ = this.store.select(BookStateGlobalSelectors.selectFullBookList)
+    this.currentBook$ = this.store.select(BookStateGlobalSelectors.selectActiveBook)
+    this.total$ = this.store.select(BookStateGlobalSelectors.selectBooksEarningsTotals)
   }
 
   ngOnInit() {

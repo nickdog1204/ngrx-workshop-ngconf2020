@@ -1,6 +1,5 @@
 // Getter Selector
 import * as fromBooks from "./books.reducer";
-import {BookModel} from "../models";
 import {createSelector} from "@ngrx/store";
 import {IGlobalState} from "./index";
 

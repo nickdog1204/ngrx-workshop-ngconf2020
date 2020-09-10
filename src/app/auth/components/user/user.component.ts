@@ -1,9 +1,6 @@
 import { Component } from "@angular/core";
 import { Observable, of } from "rxjs";
 import { UserModel } from "src/app/shared/models";
-import { Store } from "@ngrx/store";
-import { State } from "src/app/shared/state";
-import { AuthUserActions } from "../../actions";
 
 @Component({
   selector: "app-user",
